@@ -25,8 +25,17 @@ export default function TermsOfService() {
         </div>
       </nav>
 
+      {/* Breadcrumb */}
+      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 pt-6 pb-4">
+        <nav className="flex items-center space-x-2 text-sm text-gray-600">
+          <Link href="/" className="hover:text-gray-900 transition-colors">Home</Link>
+          <span>/</span>
+          <span className="text-gray-900">Terms & Conditions</span>
+        </nav>
+      </div>
+
       {/* TOS Content */}
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-16 lg:py-24">
+      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8 md:py-16 lg:py-24">
         {/* Title */}
         <h1 className="text-center mb-8 md:mb-12 lg:mb-16 text-2xl md:text-3xl lg:text-4xl font-semibold text-gray-900">Terms of Service and End-User License Agreement (EULA)</h1>
 
