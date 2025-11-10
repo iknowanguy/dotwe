@@ -21,44 +21,44 @@ export default function Home() {
   return (
     <div className="min-h-screen bg-white">
       {/* Navigation */}
-      <nav className="sticky top-0 z-50 bg-white border-b border-gray-200">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center h-16">
+      <nav className="sticky top-0 z-50 bg-white/80 backdrop-blur-md border-b border-gray-100">
+        <div className="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8">
+          <div className="flex justify-between items-center h-14 sm:h-16">
             <div className="flex items-center">
-              <Link href="/" className="font-bold text-lg md:text-xl text-gray-900">
+              <Link href="/" className="font-semibold text-xl sm:text-2xl md:text-xl text-gray-900 tracking-tight">
                 .We
               </Link>
             </div>
             <div className="hidden md:flex items-center space-x-8">
-              <a href="#product" className="text-gray-600 hover:text-gray-900 transition-colors font-medium">
+              <a href="#product" className="text-gray-600 hover:text-gray-900 transition-colors font-medium text-sm">
                 Product
               </a>
-              <a href="#traction" className="text-gray-600 hover:text-gray-900 transition-colors font-medium">
+              <a href="#traction" className="text-gray-600 hover:text-gray-900 transition-colors font-medium text-sm">
                 Traction
               </a>
-              <Button className="bg-cyan-500 hover:bg-cyan-600 text-white rounded-lg">
+              <Button className="bg-cyan-500 hover:bg-cyan-600 text-white rounded-lg text-sm px-5 py-2">
                 Get Early Access
               </Button>
             </div>
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="md:hidden p-2 text-gray-600 hover:text-gray-900"
+              className="md:hidden p-2 -mr-2 text-gray-600 hover:text-gray-900 transition-colors"
               aria-label="Toggle menu"
             >
-              {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+              {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
             </button>
           </div>
           {/* Mobile Menu */}
           {mobileMenuOpen && (
-            <div className="md:hidden border-t border-gray-200 py-4">
-              <div className="flex flex-col space-y-4 px-4">
-                <a href="#product" className="text-gray-600 hover:text-gray-900 transition-colors font-medium" onClick={() => setMobileMenuOpen(false)}>
+            <div className="md:hidden border-t border-gray-100 bg-white/95 backdrop-blur-md">
+              <div className="flex flex-col py-3 px-5 space-y-1">
+                <a href="#product" className="text-gray-700 hover:text-gray-900 transition-colors font-medium text-base py-2.5 px-1" onClick={() => setMobileMenuOpen(false)}>
                   Product
                 </a>
-                <a href="#traction" className="text-gray-600 hover:text-gray-900 transition-colors font-medium" onClick={() => setMobileMenuOpen(false)}>
+                <a href="#traction" className="text-gray-700 hover:text-gray-900 transition-colors font-medium text-base py-2.5 px-1" onClick={() => setMobileMenuOpen(false)}>
                   Traction
                 </a>
-                <Button className="bg-cyan-500 hover:bg-cyan-600 text-white rounded-lg w-full" onClick={() => setMobileMenuOpen(false)}>
+                <Button className="bg-cyan-500 hover:bg-cyan-600 text-white rounded-lg w-full mt-2 py-2.5 text-base font-medium" onClick={() => setMobileMenuOpen(false)}>
                   Get Early Access
                 </Button>
               </div>
@@ -68,66 +68,66 @@ export default function Home() {
       </nav>
 
       {/* Hero Section */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12 md:py-20 lg:py-32">
+      <section className="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8 py-10 sm:py-14 md:py-20 lg:py-32">
         <div className="text-center max-w-5xl mx-auto">
           {/* Top Badge */}
-          <div className="flex justify-center mb-4 sm:mb-6 md:mb-8">
-            <Badge className="bg-transparent border border-gray-300 text-gray-700 px-3 md:px-4 py-1.5 md:py-2 rounded-full flex items-center gap-2 text-xs md:text-sm">
-              <span className="w-2 h-2 rounded-full bg-green-500"></span>
+          <div className="flex justify-center mb-5 sm:mb-6 md:mb-8">
+            <Badge className="bg-transparent border border-gray-200 text-gray-700 px-3.5 md:px-4 py-1.5 md:py-2 rounded-full flex items-center gap-2 text-xs md:text-sm font-medium">
+              <span className="w-1.5 h-1.5 rounded-full bg-green-500"></span>
               Investment Opportunity
             </Badge>
           </div>
 
-          <h1 className="mb-4 md:mb-6 text-2xl sm:text-3xl md:text-5xl lg:text-6xl xl:text-7xl font-semibold text-gray-900 leading-tight px-2">
+          <h1 className="mb-5 md:mb-6 text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-semibold text-gray-900 leading-[1.1] tracking-tight px-1">
             The Future of Networking is Private, Trusted, and Ad-Free.
           </h1>
-          <p className="text-gray-700 mb-6 sm:mb-8 md:mb-10 max-w-2xl mx-auto text-sm sm:text-base md:text-lg px-4">
+          <p className="text-gray-600 mb-7 sm:mb-8 md:mb-10 max-w-2xl mx-auto text-base sm:text-lg md:text-lg leading-relaxed px-4">
             Google Maps for Human Capital. The Anti-Social Network that Turns Your Contacts into a Private Knowledge Graph.
           </p>
-          <form onSubmit={handleSignup} className="flex flex-col sm:flex-row gap-3 justify-center items-stretch sm:items-center w-full max-w-2xl mx-auto mb-6 md:mb-8 px-4">
+          <form onSubmit={handleSignup} className="flex flex-col sm:flex-row gap-3 justify-center items-stretch sm:items-center w-full max-w-2xl mx-auto mb-7 md:mb-8 px-4">
             <Input
               type="email"
               placeholder="Enter your email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
-              className="w-full sm:flex-1 bg-white border-gray-300 h-11 md:h-12 px-4 md:px-6 rounded-lg md:rounded-xl text-sm md:text-base"
+              className="w-full sm:flex-1 bg-white border-gray-200 h-12 md:h-12 px-5 md:px-6 rounded-xl text-base md:text-base focus:border-cyan-500 focus:ring-1 focus:ring-cyan-500 transition-all"
               required
             />
-            <Button type="submit" className="bg-cyan-500 hover:bg-cyan-600 text-white whitespace-nowrap h-11 md:h-12 px-6 md:px-8 rounded-lg md:rounded-xl text-sm md:text-base w-full sm:w-auto">
+            <Button type="submit" className="bg-cyan-500 hover:bg-cyan-600 text-white whitespace-nowrap h-12 md:h-12 px-6 md:px-8 rounded-xl text-base md:text-base font-medium w-full sm:w-auto shadow-sm hover:shadow-md transition-all">
               Request the Full Pitch Deck
             </Button>
           </form>
 
           {/* Status Chips */}
-          <div className="flex flex-wrap justify-center items-center gap-2 sm:gap-3 md:gap-4 mt-4 sm:mt-6 md:mt-8 px-4">
-            <Badge className="bg-transparent border-0 text-gray-600 px-0 flex items-center gap-2 text-xs sm:text-sm">
-              <span className="w-2 h-2 rounded-full bg-green-500"></span>
+          <div className="flex flex-wrap justify-center items-center gap-3 sm:gap-4 md:gap-5 mt-6 sm:mt-7 md:mt-8 px-4">
+            <Badge className="bg-transparent border-0 text-gray-500 px-0 flex items-center gap-2 text-sm sm:text-sm font-medium">
+              <span className="w-1.5 h-1.5 rounded-full bg-green-500"></span>
               Actively Fundraising
             </Badge>
-            <Badge className="bg-transparent border-0 text-gray-600 px-0 flex items-center gap-2 text-xs sm:text-sm">
-              <span className="w-2 h-2 rounded-full bg-gray-400"></span>
+            <Badge className="bg-transparent border-0 text-gray-500 px-0 flex items-center gap-2 text-sm sm:text-sm font-medium">
+              <span className="w-1.5 h-1.5 rounded-full bg-gray-400"></span>
               Raising Seed
             </Badge>
-            <Badge className="bg-transparent border-0 text-gray-600 px-0 flex items-center gap-2 text-xs sm:text-sm">
-              <span className="w-2 h-2 rounded-full bg-gray-400"></span>
+            <Badge className="bg-transparent border-0 text-gray-500 px-0 flex items-center gap-2 text-sm sm:text-sm font-medium">
+              <span className="w-1.5 h-1.5 rounded-full bg-gray-400"></span>
               Q1 2026 Launch
             </Badge>
           </div>
 
           {/* Stats Section */}
-          <div className="mt-8 sm:mt-12 md:mt-16 pt-6 sm:pt-8 md:pt-12 border-t border-gray-200 px-4">
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-6 md:gap-8 lg:gap-12">
+          <div className="mt-10 sm:mt-14 md:mt-16 pt-8 sm:pt-10 md:pt-12 border-t border-gray-100 px-4">
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 sm:gap-8 md:gap-10 lg:gap-12">
               <div className="text-center">
-                <div className="mb-2 md:mb-3 text-xl sm:text-2xl md:text-3xl lg:text-4xl font-semibold text-gray-900">$201B</div>
-                <p className="text-gray-500 text-xs sm:text-sm md:text-base">Market Opportunity</p>
+                <div className="mb-2 md:mb-3 text-2xl sm:text-3xl md:text-3xl lg:text-4xl font-semibold text-gray-900 tracking-tight">$201B</div>
+                <p className="text-gray-500 text-sm sm:text-sm md:text-base font-medium">Market Opportunity</p>
               </div>
               <div className="text-center">
-                <div className="mb-2 md:mb-3 text-xl sm:text-2xl md:text-3xl lg:text-4xl font-semibold text-gray-900">788+</div>
-                <p className="text-gray-500 text-xs sm:text-sm md:text-base">Validated Surveys</p>
+                <div className="mb-2 md:mb-3 text-2xl sm:text-3xl md:text-3xl lg:text-4xl font-semibold text-gray-900 tracking-tight">788+</div>
+                <p className="text-gray-500 text-sm sm:text-sm md:text-base font-medium">Validated Surveys</p>
               </div>
               <div className="text-center">
-                <div className="mb-2 md:mb-3 text-xl sm:text-2xl md:text-3xl lg:text-4xl font-semibold text-gray-900">1.5M+</div>
-                <p className="text-gray-500 text-xs sm:text-sm md:text-base">Initial Addressable Users</p>
+                <div className="mb-2 md:mb-3 text-2xl sm:text-3xl md:text-3xl lg:text-4xl font-semibold text-gray-900 tracking-tight">1.5M+</div>
+                <p className="text-gray-500 text-sm sm:text-sm md:text-base font-medium">Initial Addressable Users</p>
               </div>
             </div>
           </div>
