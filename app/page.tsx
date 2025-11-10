@@ -5,7 +5,8 @@ import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Badge } from '@/components/ui/badge';
-import { Shield, Network, Zap, Quote } from 'lucide-react';
+import { Quote } from 'lucide-react';
+import Footer from '@/components/Footer';
 
 export default function Home() {
   const [email, setEmail] = useState('');
@@ -17,31 +18,25 @@ export default function Home() {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-white">
       {/* Navigation */}
-      <nav className="bg-white border-b border-gray-200">
+      <nav className="sticky top-0 z-50 bg-white border-b border-gray-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-16">
             <div className="flex items-center">
-              <Link href="/" className="font-semibold">
+              <Link href="/" className="font-bold text-lg md:text-xl text-gray-900">
                 .We
               </Link>
             </div>
             <div className="hidden md:flex items-center space-x-8">
-              <a href="#use-case" className="text-gray-600 hover:text-gray-900">
-                Use Case
-              </a>
-              <a href="#product" className="text-gray-600 hover:text-gray-900 flex items-center gap-2">
+              <a href="#product" className="text-gray-600 hover:text-gray-900 transition-colors font-medium">
                 Product
-                <Badge variant="secondary" className="bg-gray-200 text-gray-700 border-0">
-                  Beta
-                </Badge>
               </a>
-              <a href="#about" className="text-gray-600 hover:text-gray-900">
-                About
+              <a href="#traction" className="text-gray-600 hover:text-gray-900 transition-colors font-medium">
+                Traction
               </a>
               <Button className="bg-cyan-500 hover:bg-cyan-600 text-white rounded-lg">
-                Download
+                Get Early Access
               </Button>
             </div>
           </div>
@@ -49,273 +44,189 @@ export default function Home() {
       </nav>
 
       {/* Hero Section */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 md:py-32">
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-20 lg:py-32">
         <div className="text-center max-w-5xl mx-auto">
           {/* Top Badge */}
-          <div className="flex justify-center mb-8">
-            <Badge className="bg-transparent border border-gray-300 text-gray-700 px-4 py-2 rounded-full flex items-center gap-2">
+          <div className="flex justify-center mb-6 md:mb-8">
+            <Badge className="bg-transparent border border-gray-300 text-gray-700 px-3 md:px-4 py-1.5 md:py-2 rounded-full flex items-center gap-2 text-xs md:text-sm">
               <span className="w-2 h-2 rounded-full bg-green-500"></span>
               Investment Opportunity
             </Badge>
           </div>
 
-          <h1 className="mb-6 text-5xl md:text-6xl lg:text-7xl">
+          <h1 className="mb-4 md:mb-6 text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-semibold text-gray-900 leading-tight">
             The Future of Networking is Private, Trusted, and Ad-Free.
           </h1>
-          <p className="text-gray-700 mb-10 max-w-2xl mx-auto text-lg">
-            The market is desperate for an alternative. We are building the foundational graph for all professional trust.
+          <p className="text-gray-700 mb-8 md:mb-10 max-w-2xl mx-auto text-base md:text-lg px-4">
+            Google Maps for Human Capital. The Anti-Social Network that Turns Your Contacts into a Private Knowledge Graph.
           </p>
-          <form onSubmit={handleSignup} className="flex flex-col sm:flex-row gap-3 justify-center items-center max-w-xl mx-auto mb-8">
+          <form onSubmit={handleSignup} className="flex flex-col sm:flex-row gap-3 justify-center items-stretch sm:items-center max-w-xl mx-auto mb-6 md:mb-8 px-4">
             <Input
               type="email"
               placeholder="Enter your email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
-              className="flex-1 bg-white border-gray-300 h-12 px-6 rounded-xl"
+              className="flex-1 bg-white border-gray-300 h-11 md:h-12 px-4 md:px-6 rounded-lg md:rounded-xl text-sm md:text-base"
               required
             />
-            <Button type="submit" className="bg-cyan-500 hover:bg-cyan-600 text-white whitespace-nowrap h-12 px-8 rounded-xl">
+            <Button type="submit" className="bg-cyan-500 hover:bg-cyan-600 text-white whitespace-nowrap h-11 md:h-12 px-6 md:px-8 rounded-lg md:rounded-xl text-sm md:text-base">
               Request the Full Pitch Deck
             </Button>
           </form>
 
           {/* Status Chips */}
-          <div className="flex flex-wrap justify-center items-center gap-4 mt-8">
-            <Badge className="bg-transparent border-0 text-gray-600 px-0 flex items-center gap-2">
+          <div className="flex flex-wrap justify-center items-center gap-3 md:gap-4 mt-6 md:mt-8 px-4">
+            <Badge className="bg-transparent border-0 text-gray-600 px-0 flex items-center gap-2 text-xs md:text-sm">
               <span className="w-2 h-2 rounded-full bg-green-500"></span>
               Actively Fundraising
             </Badge>
-            <Badge className="bg-transparent border-0 text-gray-600 px-0 flex items-center gap-2">
+            <Badge className="bg-transparent border-0 text-gray-600 px-0 flex items-center gap-2 text-xs md:text-sm">
               <span className="w-2 h-2 rounded-full bg-gray-400"></span>
-              Series A Stage
+              Raising Seed
             </Badge>
-            <Badge className="bg-transparent border-0 text-gray-600 px-0 flex items-center gap-2">
+            <Badge className="bg-transparent border-0 text-gray-600 px-0 flex items-center gap-2 text-xs md:text-sm">
               <span className="w-2 h-2 rounded-full bg-gray-400"></span>
-              Q1 2025 Launch
+              Q1 2026 Launch
             </Badge>
           </div>
 
           {/* Stats Section */}
-          <div className="mt-16 pt-12 border-t border-gray-200">
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12">
+          <div className="mt-12 md:mt-16 pt-8 md:pt-12 border-t border-gray-200 px-4">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 lg:gap-12">
               <div className="text-center">
-                <div className="mb-3">$201B</div>
-                <p className="text-gray-500">Market Opportunity</p>
+                <div className="mb-2 md:mb-3 text-2xl md:text-3xl lg:text-4xl font-semibold text-gray-900">$201B</div>
+                <p className="text-gray-500 text-sm md:text-base">Market Opportunity</p>
               </div>
               <div className="text-center">
-                <div className="mb-3">788+</div>
-                <p className="text-gray-500">Validated Surveys</p>
+                <div className="mb-2 md:mb-3 text-2xl md:text-3xl lg:text-4xl font-semibold text-gray-900">788+</div>
+                <p className="text-gray-500 text-sm md:text-base">Validated Surveys</p>
               </div>
               <div className="text-center">
-                <div className="mb-3">1.5M+</div>
-                <p className="text-gray-500">Initial Addressable Users</p>
+                <div className="mb-2 md:mb-3 text-2xl md:text-3xl lg:text-4xl font-semibold text-gray-900">1.5M+</div>
+                <p className="text-gray-500 text-sm md:text-base">Initial Addressable Users</p>
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Product Card Section - The Three Moats */}
-      <section className="py-24 md:py-32 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          {/* Section Header */}
-          <div className="text-center mb-20">
-            <h2 className="mb-6">Why LinkedIn Can't Do This</h2>
-            <p className="text-gray-600 max-w-2xl mx-auto text-lg">
-              Discover the next networking protocol built for people who know what their network is worth
-            </p>
-          </div>
+      {/* Product Card Section - The Three Moats - COMMENTED OUT */}
+      {false && (
+        <section id="product" className="py-16 md:py-24 lg:py-32 bg-white">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="text-center mb-12 md:mb-16 lg:mb-20">
+              <h2 className="mb-4 md:mb-6 text-3xl md:text-4xl lg:text-5xl font-semibold text-gray-900">
+                Why LinkedIn Can't Do This
+              </h2>
+              <p className="text-gray-600 max-w-2xl mx-auto text-base md:text-lg px-4">
+                Discover the next networking protocol built for people who know what their network is worth
+              </p>
+            </div>
 
-          {/* Large Feature Card - The Trust Engine */}
-          <div className="bg-gradient-to-br from-gray-50 to-white rounded-3xl border border-gray-200 overflow-hidden mb-8 shadow-sm hover:shadow-md transition-shadow">
-            <div className="grid md:grid-cols-2 gap-12 p-10 md:p-16">
-              <div className="space-y-8">
-                <div className="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-cyan-100">
-                  <Shield className="w-8 h-8 text-cyan-600" />
-                </div>
-                <div className="space-y-6">
-                  <h3 className="text-3xl md:text-4xl">Zero Trust. Zero Noise.</h3>
-                  <p className="text-gray-600 text-lg leading-relaxed">
+            <div className="bg-white rounded-2xl border border-gray-200 mb-8 md:mb-12">
+              <div className="grid md:grid-cols-2 gap-8 md:gap-12 lg:gap-16 p-6 md:p-10 lg:p-12 xl:p-16">
+                <div className="space-y-4 md:space-y-6 flex flex-col justify-center">
+                  <h3 className="text-2xl md:text-3xl lg:text-4xl font-semibold text-gray-900">Zero Trust. Zero Noise.</h3>
+                  <p className="text-gray-600 text-base md:text-lg leading-relaxed">
                     We replace cold outreach and performance theatre with the efficiency of a trust-ranked routing engine. All connections are double-opt-in and human-routed. No ads, no feed, no doom-scrolling.
                   </p>
                   <div>
-                    <Badge className="bg-cyan-100 text-cyan-700 border-0 px-4 py-2">
+                    <Badge className="bg-gray-100 text-gray-700 border-0 px-3 md:px-4 py-1 md:py-1.5 text-xs md:text-sm">
                       100% Warm Introductions Only
                     </Badge>
                   </div>
                 </div>
-              </div>
-              <div className="flex items-center justify-center md:justify-end">
-                <div className="relative w-full max-w-xs aspect-[9/16] rounded-3xl bg-gradient-to-br from-cyan-50 to-gray-100 border border-gray-200 flex items-center justify-center overflow-hidden">
-                  <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(6,182,212,0.1),transparent_50%)]"></div>
-                  <Shield className="w-24 h-24 text-cyan-400 opacity-20" />
+                <div className="flex items-center justify-center md:justify-end order-first md:order-last">
+                  <div className="w-full max-w-xs aspect-[9/16] rounded-2xl bg-gray-100 border border-gray-200"></div>
                 </div>
               </div>
             </div>
-          </div>
 
-          {/* Two Column Cards */}
-          <div className="grid md:grid-cols-2 gap-8">
-            {/* Card 2: The Technical Moat */}
-            <div className="bg-gradient-to-br from-gray-50 to-white rounded-3xl border border-gray-200 overflow-hidden shadow-sm hover:shadow-md transition-shadow">
-              <div className="p-10 md:p-12 space-y-8">
-                <div className="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-cyan-100">
-                  <Network className="w-8 h-8 text-cyan-600" />
-                </div>
-                <div className="space-y-6">
-                  <h3 className="text-2xl md:text-3xl">The Graph Utility.</h3>
-                  <p className="text-gray-600 leading-relaxed">
+            <div className="grid md:grid-cols-2 gap-6 md:gap-8">
+              <div className="bg-white rounded-2xl border border-gray-200">
+                <div className="p-6 md:p-10 lg:p-12 space-y-4 md:space-y-6">
+                  <h3 className="text-xl md:text-2xl lg:text-3xl font-semibold text-gray-900">The Graph Utility</h3>
+                  <p className="text-gray-600 leading-relaxed text-sm md:text-base">
                     We are built on a privacy-first Neo4j graph database that maps your network's intent and expertise, not just their job titles. It's an infrastructure layer for human capital you can query.
                   </p>
                   <div>
-                    <Badge className="bg-cyan-100 text-cyan-700 border-0 px-4 py-2">
+                    <Badge className="bg-gray-100 text-gray-700 border-0 px-3 md:px-4 py-1 md:py-1.5 text-xs md:text-sm">
                       Instant L1-L3 Pathfinding
                     </Badge>
                   </div>
-                </div>
-                <div className="rounded-2xl bg-gradient-to-br from-cyan-50 to-gray-100 border border-gray-200 w-full aspect-[16/10] flex items-center justify-center relative overflow-hidden">
-                  <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(6,182,212,0.1),transparent_50%)]"></div>
-                  <Network className="w-20 h-20 text-cyan-400 opacity-20" />
+                  <div className="rounded-xl bg-gray-100 border border-gray-200 w-full aspect-[16/10]"></div>
                 </div>
               </div>
-            </div>
 
-            {/* Card 3: The Velocity */}
-            <div className="bg-gradient-to-br from-gray-50 to-white rounded-3xl border border-gray-200 overflow-hidden shadow-sm hover:shadow-md transition-shadow">
-              <div className="p-10 md:p-12 space-y-8">
-                <div className="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-cyan-100">
-                  <Zap className="w-8 h-8 text-cyan-600" />
-                </div>
-                <div className="space-y-6">
-                  <h3 className="text-2xl md:text-3xl">Founder-Built. 6-Week Velocity.</h3>
-                  <p className="text-gray-600 leading-relaxed">
+              <div className="bg-white rounded-2xl border border-gray-200">
+                <div className="p-6 md:p-10 lg:p-12 space-y-4 md:space-y-6">
+                  <h3 className="text-xl md:text-2xl lg:text-3xl font-semibold text-gray-900">Founder-Built. 6-Week Velocity.</h3>
+                  <p className="text-gray-600 leading-relaxed text-sm md:text-base">
                     Idea to pivoted, functional beta with active pilot users in under 45 days. This platform is the first successful use case of itself—built by founders to solve their own co-founder problem.
                   </p>
                   <div>
-                    <Badge className="bg-cyan-100 text-cyan-700 border-0 px-4 py-2">
+                    <Badge className="bg-gray-100 text-gray-700 border-0 px-3 md:px-4 py-1 md:py-1.5 text-xs md:text-sm">
                       Founder-Built IP. No Outsourcing
                     </Badge>
                   </div>
-                </div>
-                <div className="rounded-2xl bg-gradient-to-br from-cyan-50 to-gray-100 border border-gray-200 w-full aspect-[16/10] flex items-center justify-center relative overflow-hidden">
-                  <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(6,182,212,0.1),transparent_50%)]"></div>
-                  <Zap className="w-20 h-20 text-cyan-400 opacity-20" />
+                  <div className="rounded-xl bg-gray-100 border border-gray-200 w-full aspect-[16/10]"></div>
                 </div>
               </div>
             </div>
           </div>
-        </div>
-      </section>
+        </section>
+      )}
 
-      {/* Social Proof & Velocity Section */}
-      <section className="bg-gradient-to-b from-gray-50 to-white py-24 md:py-32">
-        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="mb-6">Traction is the Only Proof.</h2>
-            <p className="text-gray-600 text-lg max-w-2xl mx-auto">
-              Currently scaling the Private Beta within premier networks, including pilot programs across IIT campuses.
-            </p>
-          </div>
-
-          {/* Testimonial Card */}
-          <div className="relative bg-white rounded-3xl border border-gray-200 shadow-lg overflow-hidden mb-12">
-            <div className="absolute top-8 left-8 w-16 h-16 rounded-full bg-cyan-50 flex items-center justify-center">
-              <Quote className="w-8 h-8 text-cyan-500" />
-            </div>
-            <div className="pt-24 pb-12 px-8 md:px-16">
-              <blockquote className="text-2xl md:text-3xl text-gray-900 mb-8 leading-relaxed">
-                "I found my next hire in 48 hours. LinkedIn took 4 weeks."
-              </blockquote>
-              <cite className="text-gray-600 not-italic text-lg">— Pilot User, Tech Startup Founder</cite>
-            </div>
-            <div className="absolute bottom-0 right-0 w-64 h-64 bg-gradient-to-tl from-cyan-50 to-transparent rounded-full blur-3xl opacity-30 pointer-events-none"></div>
-          </div>
-
-          {/* Traction Metrics */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
-            <div className="bg-white rounded-2xl border border-gray-200 p-8 text-center">
-              <div className="text-4xl mb-3 text-cyan-600">48hrs</div>
-              <p className="text-gray-600">Avg. Time to Match</p>
-            </div>
-            <div className="bg-white rounded-2xl border border-gray-200 p-8 text-center">
-              <div className="text-4xl mb-3 text-cyan-600">94%</div>
-              <p className="text-gray-600">Connection Success Rate</p>
-            </div>
-            <div className="bg-white rounded-2xl border border-gray-200 p-8 text-center">
-              <div className="text-4xl mb-3 text-cyan-600">IIT+</div>
-              <p className="text-gray-600">Premier Network Beta</p>
-            </div>
-          </div>
-
-          {/* Secondary CTA */}
-          <div className="text-center">
-            <Button className="bg-cyan-500 hover:bg-cyan-600 text-white h-14 px-10 rounded-xl text-lg shadow-lg shadow-cyan-500/20 hover:shadow-xl hover:shadow-cyan-500/30 transition-all">
-              Apply to be a Founding Beta Member
-            </Button>
-          </div>
-        </div>
-      </section>
-
-      {/* Footer */}
-      <footer className="bg-white border-t border-gray-200 py-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex flex-col md:flex-row md:justify-between md:items-start gap-12">
-            {/* Left side - Info and Copyright */}
-            <div className="space-y-8">
-              <div>
-                <h4 className="text-gray-900 mb-6 tracking-wider uppercase text-sm">Info</h4>
-                <ul className="space-y-4">
-                  <li>
-                    <Link href="/privacy" className="text-gray-600 hover:text-gray-900 transition-colors">
-                      Privacy and Policy
-                    </Link>
-                  </li>
-                  <li>
-                    <Link href="/terms" className="text-gray-600 hover:text-gray-900 transition-colors">
-                      Terms & Conditions
-                    </Link>
-                  </li>
-                  <li>
-                    <Link href="/account-deletion" className="text-gray-600 hover:text-gray-900 transition-colors">
-                      Account Deletion
-                    </Link>
-                  </li>
-                </ul>
-              </div>
-              <p className="text-gray-500 text-sm max-w-md">
-                © 2025 .We — The Default 'I Know a Guy' Partner Globally.
+      {/* Social Proof & Velocity Section - COMMENTED OUT */}
+      {false && (
+        <section id="traction" className="bg-white py-16 md:py-24 lg:py-32">
+          <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="text-center mb-12 md:mb-16">
+              <h2 className="mb-4 md:mb-6 text-3xl md:text-4xl lg:text-5xl font-semibold text-gray-900">
+                Traction is the Only Proof
+              </h2>
+              <p className="text-gray-600 text-base md:text-lg max-w-2xl mx-auto px-4">
+                Currently scaling the Private Beta within premier networks, including pilot programs across IIT campuses.
               </p>
             </div>
 
-            {/* Right side - Socials */}
-            <div>
-              <h4 className="text-gray-900 mb-6 tracking-wider uppercase text-sm">Socials</h4>
-              <ul className="space-y-4">
-                <li>
-                  <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="text-gray-600 hover:text-gray-900 transition-colors">
-                    LinkedIn
-                  </a>
-                </li>
-                <li>
-                  <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" className="text-gray-600 hover:text-gray-900 transition-colors">
-                    Twitter
-                  </a>
-                </li>
-                <li>
-                  <a href="https://youtube.com" target="_blank" rel="noopener noreferrer" className="text-gray-600 hover:text-gray-900 transition-colors">
-                    YouTube
-                  </a>
-                </li>
-                <li>
-                  <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="text-gray-600 hover:text-gray-900 transition-colors">
-                    Instagram
-                  </a>
-                </li>
-              </ul>
+            <div className="bg-white rounded-2xl border border-gray-200 mb-12 md:mb-16">
+              <div className="p-6 md:p-10 lg:p-12 xl:p-16">
+                <div className="mb-4 md:mb-6">
+                  <Quote className="w-6 h-6 md:w-8 md:h-8 text-gray-400" />
+                </div>
+                <blockquote className="text-xl md:text-2xl lg:text-3xl font-semibold text-gray-900 mb-4 md:mb-6 leading-relaxed">
+                  "I found my next hire in 48 hours. LinkedIn took 4 weeks."
+                </blockquote>
+                <cite className="text-gray-600 not-italic text-sm md:text-base">Pilot User, Tech Startup Founder</cite>
+              </div>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 mb-12 md:mb-16">
+              <div className="text-center">
+                <div className="text-4xl md:text-5xl font-semibold mb-2 text-gray-900">48hrs</div>
+                <p className="text-gray-600 text-sm md:text-base">Avg. Time to Match</p>
+              </div>
+              <div className="text-center">
+                <div className="text-4xl md:text-5xl font-semibold mb-2 text-gray-900">94%</div>
+                <p className="text-gray-600 text-sm md:text-base">Connection Success Rate</p>
+              </div>
+              <div className="text-center">
+                <div className="text-4xl md:text-5xl font-semibold mb-2 text-gray-900">IIT+</div>
+                <p className="text-gray-600 text-sm md:text-base">Premier Network Beta</p>
+              </div>
+            </div>
+
+            <div className="text-center px-4">
+              <Button className="bg-cyan-500 hover:bg-cyan-600 text-white h-11 md:h-12 px-6 md:px-8 rounded-lg text-sm md:text-base font-medium w-full sm:w-auto">
+                Apply to be a Founding Beta Member
+              </Button>
             </div>
           </div>
-        </div>
-      </footer>
+        </section>
+      )}
+
+      <Footer />
     </div>
   );
 }
