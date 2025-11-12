@@ -1,22 +1,46 @@
-import { createClient } from "@supabase/supabase-js";
+import { createClient, SupabaseClient } from "@supabase/supabase-js";
 
-// Client for server-side operations with service role key (full access)
-export const supabaseAdmin = createClient(
-  process.env.NEXT_PUBLIC_SUPABASE_URL!,
-  process.env.SUPABASE_SERVICE_ROLE_KEY!,
-  {
-    auth: {
-      autoRefreshToken: false,
-      persistSession: false,
-    },
+let _supabaseAdmin: SupabaseClient | null = null;
+let _supabaseClient: SupabaseClient | null = null;
+
+// Lazy initialization for server-side operations with service role key (full access)
+export const getSupabaseAdmin = () => {
+  if (!_supabaseAdmin) {
+    const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
+    const supabaseKey = process.env.SUPABASE_SERVICE_ROLE_KEY;
+
+    if (!supabaseUrl || !supabaseKey) {
+      throw new Error(
+        "Missing Supabase environment variables. Please check NEXT_PUBLIC_SUPABASE_URL and SUPABASE_SERVICE_ROLE_KEY."
+      );
+    }
+
+    _supabaseAdmin = createClient(supabaseUrl, supabaseKey, {
+      auth: {
+        autoRefreshToken: false,
+        persistSession: false,
+      },
+    });
   }
-);
+  return _supabaseAdmin;
+};
 
-// Client for client-side operations with anon key
-export const supabaseClient = createClient(
-  process.env.NEXT_PUBLIC_SUPABASE_URL!,
-  process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
-);
+// Lazy initialization for client-side operations with anon key
+export const getSupabaseClient = () => {
+  if (!_supabaseClient) {
+    const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
+    const supabaseKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
+
+    if (!supabaseUrl || !supabaseKey) {
+      throw new Error(
+        "Missing Supabase environment variables. Please check NEXT_PUBLIC_SUPABASE_URL and NEXT_PUBLIC_SUPABASE_ANON_KEY."
+      );
+    }
+
+    _supabaseClient = createClient(supabaseUrl, supabaseKey);
+  }
+  return _supabaseClient;
+};
 
 /**
  * Generate a signed URL for downloading the APK file
@@ -29,6 +53,7 @@ export async function generateSignedDownloadUrl(
   expiresIn: number = 3600
 ): Promise<string | null> {
   try {
+    const supabaseAdmin = getSupabaseAdmin();
     const { data, error } = await supabaseAdmin.storage
       .from(process.env.APK_STORAGE_BUCKET!)
       .createSignedUrl(filePath, expiresIn);
@@ -52,6 +77,7 @@ export async function generateSignedDownloadUrl(
  */
 export async function checkApkExists(filePath: string): Promise<boolean> {
   try {
+    const supabaseAdmin = getSupabaseAdmin();
     const { data, error } = await supabaseAdmin.storage
       .from(process.env.APK_STORAGE_BUCKET!)
       .list("", {

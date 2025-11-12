@@ -4,6 +4,9 @@ import { authOptions } from "@/lib/auth";
 import { upsertEarlyAccessSignup } from "@/lib/database";
 import { generateDownloadToken } from "@/lib/jwt";
 
+// Force dynamic rendering for this API route
+export const dynamic = "force-dynamic";
+
 export async function POST(request: NextRequest) {
   try {
     // Get the authenticated session

@@ -1,4 +1,4 @@
-import { supabaseAdmin } from "./supabase";
+import { getSupabaseAdmin } from "./supabase";
 
 export interface EarlyAccessSignup {
   id: string;
@@ -24,6 +24,7 @@ export async function upsertEarlyAccessSignup(
   googleId: string
 ): Promise<EarlyAccessSignup | null> {
   try {
+    const supabaseAdmin = getSupabaseAdmin();
     const { data, error } = await supabaseAdmin
       .from("early_access_signups")
       .upsert(
@@ -60,6 +61,7 @@ export async function getEarlyAccessSignup(
   email: string
 ): Promise<EarlyAccessSignup | null> {
   try {
+    const supabaseAdmin = getSupabaseAdmin();
     const { data, error } = await supabaseAdmin
       .from("early_access_signups")
       .select("*")
@@ -87,6 +89,7 @@ export async function recordDownload(
   email: string
 ): Promise<EarlyAccessSignup | null> {
   try {
+    const supabaseAdmin = getSupabaseAdmin();
     // First get current download count
     const { data: currentData } = await supabaseAdmin
       .from("early_access_signups")
@@ -125,6 +128,7 @@ export async function recordDownload(
  */
 export async function getSignupCount(): Promise<number> {
   try {
+    const supabaseAdmin = getSupabaseAdmin();
     const { count, error } = await supabaseAdmin
       .from("early_access_signups")
       .select("*", { count: "exact", head: true });
