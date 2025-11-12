@@ -106,26 +106,26 @@ export default function EarlyAccessPage() {
   return (
     <div className="min-h-screen bg-white flex flex-col">
       <Header />
-      <div className="flex-1 flex items-center justify-center p-4 py-8 md:py-12">
-        <div className="max-w-2xl w-full space-y-6">
+      <div className="flex-1 flex items-center justify-center p-6 sm:px-8 lg:px-12 py-16 sm:py-20">
+        <div className="max-w-2xl w-full space-y-8">
         {/* Header */}
-        <div className="text-center space-y-2">
-          <h1 className="text-4xl font-bold tracking-tight">
+        <div className="text-center space-y-3">
+          <h1 className="text-2xl sm:text-3xl font-medium tracking-tight text-gray-900">
             Get Early Access
           </h1>
-          <p className="text-muted-foreground text-lg">
+          <p className="text-gray-600 text-sm sm:text-base">
             Join the exclusive early access program and be among the first to try dotwe
           </p>
         </div>
 
         {/* Main Card */}
-        <Card className="shadow-xl">
-          <CardHeader>
-            <CardTitle className="flex items-center gap-2">
-              <Shield className="h-6 w-6 text-blue-600" />
+        <Card className="border border-gray-200 shadow-none">
+          <CardHeader className="space-y-2">
+            <CardTitle className="flex items-center gap-2 text-lg font-medium text-gray-900">
+              <Shield className="h-5 w-5 text-gray-600" />
               Early Access Download
             </CardTitle>
-            <CardDescription>
+            <CardDescription className="text-sm text-gray-600">
               Sign in with Google to unlock your exclusive APK download
             </CardDescription>
           </CardHeader>
@@ -133,19 +133,19 @@ export default function EarlyAccessPage() {
           <CardContent className="space-y-4">
             {/* Error Alert */}
             {error && (
-              <Alert variant="destructive">
-                <AlertCircle className="h-4 w-4" />
-                <AlertTitle>Error</AlertTitle>
-                <AlertDescription>{error}</AlertDescription>
+              <Alert variant="destructive" className="border-red-200 bg-red-50">
+                <AlertCircle className="h-4 w-4 text-red-600" />
+                <AlertTitle className="text-red-900 text-sm font-medium">Error</AlertTitle>
+                <AlertDescription className="text-red-800 text-sm">{error}</AlertDescription>
               </Alert>
             )}
 
             {/* Success Alert */}
             {success && (
-              <Alert className="border-green-200 bg-green-50">
-                <CheckCircle2 className="h-4 w-4 text-green-600" />
-                <AlertTitle className="text-green-800">Success!</AlertTitle>
-                <AlertDescription className="text-green-700">
+              <Alert className="border-gray-200 bg-gray-50">
+                <CheckCircle2 className="h-4 w-4 text-gray-600" />
+                <AlertTitle className="text-gray-900 text-sm font-medium">Success!</AlertTitle>
+                <AlertDescription className="text-gray-600 text-sm">
                   {success}
                 </AlertDescription>
               </Alert>
@@ -153,26 +153,26 @@ export default function EarlyAccessPage() {
 
             {/* Not Signed In */}
             {status === "unauthenticated" && (
-              <div className="space-y-4">
-                <div className="bg-blue-50 border border-blue-200 rounded-lg p-4">
-                  <h3 className="font-semibold text-blue-900 mb-2">
+              <div className="space-y-5">
+                <div className="bg-gray-50 border border-gray-200 rounded-lg p-5">
+                  <h3 className="font-medium text-gray-900 mb-3 text-sm">
                     What you'll get:
                   </h3>
-                  <ul className="space-y-2 text-sm text-blue-800">
-                    <li className="flex items-start gap-2">
-                      <CheckCircle2 className="h-4 w-4 mt-0.5 flex-shrink-0" />
+                  <ul className="space-y-2.5 text-sm text-gray-600">
+                    <li className="flex items-start gap-2.5">
+                      <CheckCircle2 className="h-4 w-4 mt-0.5 flex-shrink-0 text-gray-500" />
                       <span>Exclusive early access to dotwe Android app</span>
                     </li>
-                    <li className="flex items-start gap-2">
-                      <CheckCircle2 className="h-4 w-4 mt-0.5 flex-shrink-0" />
+                    <li className="flex items-start gap-2.5">
+                      <CheckCircle2 className="h-4 w-4 mt-0.5 flex-shrink-0 text-gray-500" />
                       <span>Secure, one-time download link</span>
                     </li>
-                    <li className="flex items-start gap-2">
-                      <CheckCircle2 className="h-4 w-4 mt-0.5 flex-shrink-0" />
+                    <li className="flex items-start gap-2.5">
+                      <CheckCircle2 className="h-4 w-4 mt-0.5 flex-shrink-0 text-gray-500" />
                       <span>SHA-256 checksum for verification</span>
                     </li>
-                    <li className="flex items-start gap-2">
-                      <CheckCircle2 className="h-4 w-4 mt-0.5 flex-shrink-0" />
+                    <li className="flex items-start gap-2.5">
+                      <CheckCircle2 className="h-4 w-4 mt-0.5 flex-shrink-0 text-gray-500" />
                       <span>Installation instructions included</span>
                     </li>
                   </ul>
@@ -181,8 +181,7 @@ export default function EarlyAccessPage() {
                 <Button
                   onClick={handleGoogleSignIn}
                   disabled={isLoading}
-                  className="w-full"
-                  size="lg"
+                  className="w-full bg-gray-900 hover:bg-gray-800 text-white h-11 text-sm font-normal shadow-none"
                 >
                   {isLoading ? (
                     <>
@@ -210,20 +209,20 @@ export default function EarlyAccessPage() {
 
             {/* Loading State */}
             {status === "loading" && (
-              <div className="flex items-center justify-center py-8">
-                <Loader2 className="h-8 w-8 animate-spin text-blue-600" />
+              <div className="flex items-center justify-center py-12">
+                <Loader2 className="h-6 w-6 animate-spin text-gray-600" />
               </div>
             )}
 
             {/* Signed In - Ready to Download */}
             {status === "authenticated" && downloadToken && !downloadUrl && (
-              <div className="space-y-4">
-                <Alert className="border-blue-200 bg-blue-50">
-                  <CheckCircle2 className="h-4 w-4 text-blue-600" />
-                  <AlertTitle className="text-blue-900">
+              <div className="space-y-5">
+                <Alert className="border-gray-200 bg-gray-50">
+                  <CheckCircle2 className="h-4 w-4 text-gray-600" />
+                  <AlertTitle className="text-gray-900 text-sm font-medium">
                     You're all set!
                   </AlertTitle>
-                  <AlertDescription className="text-blue-800">
+                  <AlertDescription className="text-gray-600 text-sm">
                     Signed in as <strong>{session?.user?.email}</strong>
                   </AlertDescription>
                 </Alert>
@@ -231,8 +230,7 @@ export default function EarlyAccessPage() {
                 <Button
                   onClick={handleDownload}
                   disabled={isLoading}
-                  className="w-full"
-                  size="lg"
+                  className="w-full bg-gray-900 hover:bg-gray-800 text-white h-11 text-sm font-normal shadow-none"
                 >
                   {isLoading ? (
                     <>
@@ -251,21 +249,21 @@ export default function EarlyAccessPage() {
 
             {/* Download Complete */}
             {downloadUrl && checksum && (
-              <div className="space-y-4">
-                <Alert className="border-green-200 bg-green-50">
-                  <CheckCircle2 className="h-4 w-4 text-green-600" />
-                  <AlertTitle className="text-green-900">
+              <div className="space-y-5">
+                <Alert className="border-gray-200 bg-gray-50">
+                  <CheckCircle2 className="h-4 w-4 text-gray-600" />
+                  <AlertTitle className="text-gray-900 text-sm font-medium">
                     Download Started!
                   </AlertTitle>
-                  <AlertDescription className="text-green-800">
+                  <AlertDescription className="text-gray-600 text-sm">
                     Your download should start automatically. If it doesn't, click the link below.
                   </AlertDescription>
                 </Alert>
 
-                <div className="bg-gray-50 border border-gray-200 rounded-lg p-4 space-y-3">
+                <div className="bg-gray-50 border border-gray-200 rounded-lg p-5 space-y-4">
                   <div>
-                    <h4 className="font-semibold text-sm mb-1">SHA-256 Checksum:</h4>
-                    <code className="text-xs bg-white p-2 rounded border block break-all">
+                    <h4 className="font-medium text-xs text-gray-900 mb-2 uppercase tracking-wider">SHA-256 Checksum:</h4>
+                    <code className="text-xs bg-white p-3 rounded border border-gray-200 block break-all text-gray-700 font-mono">
                       {checksum || "Not available"}
                     </code>
                   </div>
@@ -273,7 +271,7 @@ export default function EarlyAccessPage() {
                   <Button
                     onClick={() => window.location.href = downloadUrl}
                     variant="outline"
-                    className="w-full"
+                    className="w-full border-gray-300 text-gray-700 hover:bg-gray-100 h-11 text-sm font-normal"
                   >
                     <Download className="mr-2 h-4 w-4" />
                     Download Again
@@ -283,10 +281,10 @@ export default function EarlyAccessPage() {
             )}
           </CardContent>
 
-          <CardFooter className="flex-col items-start space-y-4 border-t pt-6">
+          <CardFooter className="flex-col items-start space-y-5 border-t border-gray-200 pt-6">
             <div className="w-full">
-              <h3 className="font-semibold mb-2">Installation Instructions:</h3>
-              <ol className="text-sm text-muted-foreground space-y-2 list-decimal list-inside">
+              <h3 className="font-medium text-sm text-gray-900 mb-3">Installation Instructions:</h3>
+              <ol className="text-sm text-gray-600 space-y-2 list-decimal list-inside leading-relaxed">
                 <li>Download the APK file to your Android device</li>
                 <li>Go to Settings → Security → Enable "Unknown Sources"</li>
                 <li>Open the downloaded APK file to install</li>
@@ -300,7 +298,7 @@ export default function EarlyAccessPage() {
                 variant="ghost"
                 size="sm"
                 onClick={() => signOut({ callbackUrl: "/" })}
-                className="w-full"
+                className="w-full text-gray-600 hover:text-gray-900 hover:bg-gray-50 text-sm font-normal"
               >
                 Sign Out
               </Button>
@@ -309,13 +307,13 @@ export default function EarlyAccessPage() {
         </Card>
 
         {/* Security Note */}
-        <Card className="border-amber-200 bg-amber-50">
+        <Card className="border-gray-200 bg-gray-50 shadow-none">
           <CardContent className="pt-6">
             <div className="flex gap-3">
-              <Shield className="h-5 w-5 text-amber-600 flex-shrink-0 mt-0.5" />
+              <Shield className="h-5 w-5 text-gray-600 flex-shrink-0 mt-0.5" />
               <div className="space-y-1">
-                <h4 className="font-semibold text-amber-900">Security Note</h4>
-                <p className="text-sm text-amber-800">
+                <h4 className="font-medium text-sm text-gray-900">Security Note</h4>
+                <p className="text-sm text-gray-600 leading-relaxed">
                   Always verify the SHA-256 checksum before installing the APK. Never install APKs from untrusted sources. Your email is only used for early access registration and will not be shared with third parties.
                 </p>
               </div>

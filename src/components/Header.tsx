@@ -27,11 +27,11 @@ export default function Header() {
             <Link href="/thefuture" className="text-gray-600 hover:text-gray-900 transition-colors font-normal text-sm">
               Memo
             </Link>
-            <Link href="/early-access">
+            <a href="https://www.dotwe.app/download" target="_blank" rel="noopener noreferrer">
               <Button className="bg-gray-100 hover:bg-gray-200 text-gray-900 rounded-lg text-sm px-4 py-2 font-normal shadow-none">
-                Join Waitlist
+                Download
               </Button>
-            </Link>
+            </a>
           </div>
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
@@ -54,11 +54,11 @@ export default function Header() {
               <Link href="/thefuture" className="text-gray-600 hover:text-gray-900 transition-colors font-normal text-sm py-2" onClick={() => setMobileMenuOpen(false)}>
                 Memo
               </Link>
-              <Link href="/early-access" onClick={() => setMobileMenuOpen(false)}>
+              <a href="https://www.dotwe.app/download" target="_blank" rel="noopener noreferrer" onClick={() => setMobileMenuOpen(false)}>
                 <Button className="bg-gray-100 hover:bg-gray-200 text-gray-900 rounded-lg w-full mt-2 py-2.5 text-sm font-normal shadow-none">
-                  Join Waitlist
+                  Download
                 </Button>
-              </Link>
+              </a>
             </div>
           </div>
         )}
