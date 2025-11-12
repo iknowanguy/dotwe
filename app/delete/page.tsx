@@ -69,7 +69,7 @@ export default function AccountDeletion() {
             <div className="bg-gray-50 rounded-2xl p-6 md:p-8 my-6 md:my-8">
               <h3 className="text-lg md:text-xl font-semibold mb-4">Option B: Email Request</h3>
               <ol className="list-decimal pl-5 md:pl-6 space-y-2 md:space-y-3 text-gray-700 mt-4 text-sm md:text-base">
-                <li>Send an email to <strong>privacy@we.app</strong>.</li>
+                <li>Send an email to <strong>privacy@dotwe.app</strong>.</li>
                 <li>The subject line <strong>MUST</strong> be: <strong>Account Deletion Request - [Your Registered Email]</strong>.</li>
                 <li>The body of the email must state your full name and confirm your intent to permanently delete your account.</li>
               </ol>
@@ -160,7 +160,7 @@ export default function AccountDeletion() {
               If you have any questions about the account deletion process or our data handling practices, please contact us at:
             </p>
             <div className="mt-4 text-gray-700">
-              <p><strong>Email:</strong> privacy@we.app</p>
+              <p><strong>Email:</strong> privacy@dotwe.app</p>
               <p className="mt-2"><strong>Subject Line:</strong> Account Deletion Inquiry</p>
             </div>
           </section>

@@ -63,7 +63,7 @@ export default function Privacy() {
             </li>
             <li className="flex gap-3 text-gray-700">
               <ArrowRight className="w-5 h-5 text-cyan-500 flex-shrink-0 mt-0.5" />
-              <span>You can review, correct, or withdraw your data anytime by emailing <strong>privacy@we.app</strong>.</span>
+              <span>You can review, correct, or withdraw your data anytime by emailing <strong>privacy@dotwe.app</strong>.</span>
             </li>
             <li className="flex gap-3 text-gray-700">
               <ArrowRight className="w-5 h-5 text-cyan-500 flex-shrink-0 mt-0.5" />
@@ -243,7 +243,7 @@ export default function Privacy() {
               If you have any questions or concerns about this Privacy Policy, our data practices, or if you wish to exercise your data rights, please contact us:
             </p>
             <div className="mt-4 text-gray-700">
-              <p><strong>By Email:</strong> privacy@we.app</p>
+              <p><strong>By Email:</strong> privacy@dotwe.app</p>
               <p className="mt-2"><strong>By Mail:</strong></p>
               <p>.We Inc.</p>
               <p>[Your Company Address]</p>

@@ -140,19 +140,12 @@ export default function TermsOfService() {
             </p>
           </section>
 
-          {/* Section 7 */}
-          <section>
-            <h2>7. Governing Law and Dispute Resolution</h2>
-            <p className="text-gray-700">
-              These Terms shall be governed by and defined in accordance with the laws of <strong>[Insert Governing Jurisdiction, e.g., the State of Delaware, USA, or the Republic of India]</strong>. Any disputes will be subject to the exclusive jurisdiction of the courts in <strong>[Insert City/Region, e.g., Bangalore, Karnataka]</strong>.
-            </p>
-          </section>
 
           {/* Section 8 */}
           <section>
-            <h2>8. Contact Information</h2>
+            <h2>7. Contact Information</h2>
             <p className="text-gray-700">
-              For questions regarding these Terms, please contact us at: <strong>legal@we.app</strong>.
+              For questions regarding these Terms, please contact us at: <strong>legal@dotwe.app</strong>.
             </p>
           </section>
         </div>
