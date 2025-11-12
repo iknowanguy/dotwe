@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import '../src/styles/globals.css'
+import NextAuthProvider from '../components/NextAuthProvider'
 
 export const metadata: Metadata = {
   title: '.We - The Future of Networking',
@@ -13,7 +14,11 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body>{children}</body>
+      <body>
+        <NextAuthProvider>
+          {children}
+        </NextAuthProvider>
+      </body>
     </html>
   )
 }
