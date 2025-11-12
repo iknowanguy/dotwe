@@ -9,24 +9,27 @@ export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   return (
-    <nav className="sticky top-0 z-50 bg-white/80 backdrop-blur-md border-b border-gray-100">
-      <div className="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-14 sm:h-16">
+    <nav className="sticky top-0 z-50 bg-white/70 backdrop-blur-xl border-b border-gray-200/50">
+      <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
+        <div className="flex justify-between items-center h-16">
           <div className="flex items-center">
-            <Link href="/" className="font-semibold text-xl sm:text-2xl md:text-xl text-gray-900 tracking-tight">
+            <Link href="/" className="font-medium text-base text-gray-900 tracking-tight">
               .We
             </Link>
           </div>
-          <div className="hidden md:flex items-center space-x-8">
-            <a href="/#product" className="text-gray-600 hover:text-gray-900 transition-colors font-medium text-sm">
+          <div className="hidden md:flex items-center space-x-10">
+            <a href="/#product" className="text-gray-600 hover:text-gray-900 transition-colors font-normal text-sm">
               Product
             </a>
-            <a href="/#traction" className="text-gray-600 hover:text-gray-900 transition-colors font-medium text-sm">
+            <a href="/#traction" className="text-gray-600 hover:text-gray-900 transition-colors font-normal text-sm">
               Traction
             </a>
+            <Link href="/thefuture" className="text-gray-600 hover:text-gray-900 transition-colors font-normal text-sm">
+              Memo
+            </Link>
             <Link href="/early-access">
-              <Button className="bg-cyan-500 hover:bg-cyan-600 text-white rounded-lg text-sm px-5 py-2">
-                Get Early Access
+              <Button className="bg-gray-100 hover:bg-gray-200 text-gray-900 rounded-lg text-sm px-4 py-2 font-normal shadow-none">
+                Join Waitlist
               </Button>
             </Link>
           </div>
@@ -40,17 +43,20 @@ export default function Header() {
         </div>
         {/* Mobile Menu */}
         {mobileMenuOpen && (
-          <div className="md:hidden border-t border-gray-100 bg-white/95 backdrop-blur-md">
-            <div className="flex flex-col py-3 px-5 space-y-1">
-              <a href="/#product" className="text-gray-700 hover:text-gray-900 transition-colors font-medium text-base py-2.5 px-1" onClick={() => setMobileMenuOpen(false)}>
+          <div className="md:hidden border-t border-gray-200/50 bg-white/90 backdrop-blur-xl">
+            <div className="flex flex-col py-4 px-6 space-y-2">
+              <a href="/#product" className="text-gray-600 hover:text-gray-900 transition-colors font-normal text-sm py-2" onClick={() => setMobileMenuOpen(false)}>
                 Product
               </a>
-              <a href="/#traction" className="text-gray-700 hover:text-gray-900 transition-colors font-medium text-base py-2.5 px-1" onClick={() => setMobileMenuOpen(false)}>
+              <a href="/#traction" className="text-gray-600 hover:text-gray-900 transition-colors font-normal text-sm py-2" onClick={() => setMobileMenuOpen(false)}>
                 Traction
               </a>
+              <Link href="/thefuture" className="text-gray-600 hover:text-gray-900 transition-colors font-normal text-sm py-2" onClick={() => setMobileMenuOpen(false)}>
+                Memo
+              </Link>
               <Link href="/early-access" onClick={() => setMobileMenuOpen(false)}>
-                <Button className="bg-cyan-500 hover:bg-cyan-600 text-white rounded-lg w-full mt-2 py-2.5 text-base font-medium">
-                  Get Early Access
+                <Button className="bg-gray-100 hover:bg-gray-200 text-gray-900 rounded-lg w-full mt-2 py-2.5 text-sm font-normal shadow-none">
+                  Join Waitlist
                 </Button>
               </Link>
             </div>

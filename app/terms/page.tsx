@@ -20,6 +20,9 @@ export default function TermsOfService() {
               <Link href="/#traction" className="text-gray-600 hover:text-gray-900 transition-colors font-medium">
                 Traction
               </Link>
+              <Link href="/thefuture" className="text-gray-600 hover:text-gray-900 transition-colors font-medium">
+                Memo
+              </Link>
             </div>
           </div>
         </div>

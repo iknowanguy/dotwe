@@ -22,66 +22,66 @@ export default function Home() {
       <Header />
 
       {/* Hero Section */}
-      <section className="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8 py-10 sm:py-14 md:py-20 lg:py-32">
-        <div className="text-center max-w-5xl mx-auto">
+      <section className="max-w-6xl mx-auto px-6 sm:px-8 lg:px-12 py-20 sm:py-24 md:py-32 lg:py-40">
+        <div className="text-center max-w-4xl mx-auto">
           {/* Top Badge */}
-          <div className="flex justify-center mb-5 sm:mb-6 md:mb-8">
-            <Badge className="bg-transparent border border-gray-200 text-gray-700 px-3.5 md:px-4 py-1.5 md:py-2 rounded-full flex items-center gap-2 text-xs md:text-sm font-medium">
+          <div className="flex justify-center mb-8">
+            <Badge className="bg-transparent border border-gray-300 text-gray-600 px-3 py-1 rounded-full flex items-center gap-2 text-xs font-normal">
               <span className="w-1.5 h-1.5 rounded-full bg-green-500"></span>
               Investment Opportunity
             </Badge>
           </div>
 
-          <h1 className="mb-5 md:mb-6 text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-semibold text-gray-900 leading-[1.1] tracking-tight px-1">
+          <h1 className="mb-6 text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-medium text-gray-900 leading-[1.2] tracking-tight">
             The Future of Networking is Private, Trusted, and Ad-Free.
           </h1>
-          <p className="text-gray-600 mb-7 sm:mb-8 md:mb-10 max-w-2xl mx-auto text-base sm:text-lg md:text-lg leading-relaxed px-4">
+          <p className="text-gray-600 mb-12 max-w-2xl mx-auto text-sm sm:text-base leading-relaxed">
             Google Maps for Human Capital. The Anti-Social Network that Turns Your Contacts into a Private Knowledge Graph.
           </p>
-          <form onSubmit={handleSignup} className="flex flex-col sm:flex-row gap-3 justify-center items-stretch sm:items-center w-full max-w-2xl mx-auto mb-7 md:mb-8 px-4">
+          <form onSubmit={handleSignup} className="flex flex-col sm:flex-row gap-3 justify-center items-stretch sm:items-center w-full max-w-xl mx-auto mb-12">
             <Input
               type="email"
               placeholder="Enter your email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
-              className="w-full sm:flex-1 bg-white border-gray-200 h-12 md:h-12 px-5 md:px-6 rounded-xl text-base md:text-base focus:border-cyan-500 focus:ring-1 focus:ring-cyan-500 transition-all"
+              className="w-full sm:flex-1 bg-white border-gray-300 h-11 px-4 rounded-lg text-sm focus:border-gray-400 focus:ring-0 transition-all"
               required
             />
-            <Button type="submit" className="bg-cyan-500 hover:bg-cyan-600 text-white whitespace-nowrap h-12 md:h-12 px-6 md:px-8 rounded-xl text-base md:text-base font-medium w-full sm:w-auto shadow-sm hover:shadow-md transition-all">
+            <Button type="submit" className="bg-gray-900 hover:bg-gray-800 text-white whitespace-nowrap h-11 px-6 rounded-lg text-sm font-normal w-full sm:w-auto shadow-none">
               Request the Full Pitch Deck
             </Button>
           </form>
 
           {/* Status Chips */}
-          <div className="flex flex-wrap justify-center items-center gap-3 sm:gap-4 md:gap-5 mt-6 sm:mt-7 md:mt-8 px-4">
-            <Badge className="bg-transparent border-0 text-gray-500 px-0 flex items-center gap-2 text-sm sm:text-sm font-medium">
+          <div className="flex flex-wrap justify-center items-center gap-4 mt-8">
+            <Badge className="bg-transparent border-0 text-gray-500 px-0 flex items-center gap-2 text-xs font-normal">
               <span className="w-1.5 h-1.5 rounded-full bg-green-500"></span>
               Actively Fundraising
             </Badge>
-            <Badge className="bg-transparent border-0 text-gray-500 px-0 flex items-center gap-2 text-sm sm:text-sm font-medium">
+            <Badge className="bg-transparent border-0 text-gray-500 px-0 flex items-center gap-2 text-xs font-normal">
               <span className="w-1.5 h-1.5 rounded-full bg-gray-400"></span>
               Raising Seed
             </Badge>
-            <Badge className="bg-transparent border-0 text-gray-500 px-0 flex items-center gap-2 text-sm sm:text-sm font-medium">
+            <Badge className="bg-transparent border-0 text-gray-500 px-0 flex items-center gap-2 text-xs font-normal">
               <span className="w-1.5 h-1.5 rounded-full bg-gray-400"></span>
               Q1 2026 Launch
             </Badge>
           </div>
 
           {/* Stats Section */}
-          <div className="mt-10 sm:mt-14 md:mt-16 pt-8 sm:pt-10 md:pt-12 border-t border-gray-100 px-4">
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 sm:gap-8 md:gap-10 lg:gap-12">
+          <div className="mt-20 pt-12 border-t border-gray-200">
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-12">
               <div className="text-center">
-                <div className="mb-2 md:mb-3 text-2xl sm:text-3xl md:text-3xl lg:text-4xl font-semibold text-gray-900 tracking-tight">$201B</div>
-                <p className="text-gray-500 text-sm sm:text-sm md:text-base font-medium">Market Opportunity</p>
+                <div className="mb-2 text-2xl sm:text-3xl font-medium text-gray-900 tracking-tight">$201B</div>
+                <p className="text-gray-500 text-xs font-normal">Market Opportunity</p>
               </div>
               <div className="text-center">
-                <div className="mb-2 md:mb-3 text-2xl sm:text-3xl md:text-3xl lg:text-4xl font-semibold text-gray-900 tracking-tight">788+</div>
-                <p className="text-gray-500 text-sm sm:text-sm md:text-base font-medium">Validated Surveys</p>
+                <div className="mb-2 text-2xl sm:text-3xl font-medium text-gray-900 tracking-tight">788+</div>
+                <p className="text-gray-500 text-xs font-normal">Validated Surveys</p>
               </div>
               <div className="text-center">
-                <div className="mb-2 md:mb-3 text-2xl sm:text-3xl md:text-3xl lg:text-4xl font-semibold text-gray-900 tracking-tight">1.5M+</div>
-                <p className="text-gray-500 text-sm sm:text-sm md:text-base font-medium">Initial Addressable Users</p>
+                <div className="mb-2 text-2xl sm:text-3xl font-medium text-gray-900 tracking-tight">1.5M+</div>
+                <p className="text-gray-500 text-xs font-normal">Initial Addressable Users</p>
               </div>
             </div>
           </div>
