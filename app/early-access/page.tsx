@@ -1,42 +1,9 @@
 'use client';
 
-import { useState } from 'react';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 
 export default function EarlyAccessPage() {
-  const [email, setEmail] = useState('');
-  const [isLoading, setIsLoading] = useState(false);
-  const [error, setError] = useState<string | null>(null);
-  const [success, setSuccess] = useState(false);
-
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    setError(null);
-    setIsLoading(true);
-
-    try {
-      // Simple email validation
-      if (!email || !email.includes('@')) {
-        throw new Error('Please enter a valid email address');
-      }
-
-      // Here you would typically send the email to your backend
-      // For now, we'll just show success and allow download
-      await new Promise(resolve => setTimeout(resolve, 1000));
-      
-      setSuccess(true);
-      // Auto-trigger download after successful submission
-      setTimeout(() => {
-        window.location.href = 'https://www.dotwe.app/download';
-      }, 500);
-    } catch (err: any) {
-      setError(err.message || 'An error occurred. Please try again.');
-    } finally {
-      setIsLoading(false);
-    }
-  };
-
   const handleDownload = () => {
     // Direct download link to APK
     window.location.href = 'https://www.dotwe.app/download';
@@ -58,109 +25,25 @@ export default function EarlyAccessPage() {
           </div>
 
           {/* Main Card */}
-          <div className="border border-gray-200 rounded-lg p-6 sm:p-8 space-y-6">
-            {!success ? (
-              <>
-                <div className="space-y-2">
-                  <h2 className="text-lg font-medium text-gray-900 flex items-center gap-2">
-                    <svg className="h-5 w-5 text-gray-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
-                    </svg>
-                    Early Access Download
-                  </h2>
-                  <p className="text-sm text-gray-600">
-                    Enter your email to get access to the .we Android APK
-                  </p>
-                </div>
-
-                {/* Error Alert */}
-                {error && (
-                  <div className="border border-red-200 bg-red-50 rounded-lg p-4 flex gap-3">
-                    <div className="flex-shrink-0 mt-0.5">
-                      <svg className="h-4 w-4 text-red-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-                      </svg>
-                    </div>
-                    <div>
-                      <p className="text-red-900 text-sm font-medium">Error</p>
-                      <p className="text-red-800 text-sm">{error}</p>
-                    </div>
-                  </div>
-                )}
-
-                {/* What you'll get */}
-                <div className="bg-gray-50 border border-gray-200 rounded-lg p-5">
-                  <h3 className="font-medium text-gray-900 mb-3 text-sm">
-                    What you'll get:
-                  </h3>
-                  <ul className="space-y-2.5 text-sm text-gray-600">
-                    <li className="flex items-start gap-2.5">
-                      <svg className="h-4 w-4 mt-0.5 flex-shrink-0 text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-                      </svg>
-                      <span>Exclusive early access to .we Android app</span>
-                    </li>
-                    <li className="flex items-start gap-2.5">
-                      <svg className="h-4 w-4 mt-0.5 flex-shrink-0 text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-                      </svg>
-                      <span>Secure download link</span>
-                    </li>
-                    <li className="flex items-start gap-2.5">
-                      <svg className="h-4 w-4 mt-0.5 flex-shrink-0 text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-                      </svg>
-                      <span>Installation instructions included</span>
-                    </li>
-                  </ul>
-                </div>
-
-                {/* Email Form */}
-                <form onSubmit={handleSubmit} className="space-y-4">
-                  <div>
-                    <input
-                      type="email"
-                      placeholder="Enter your email"
-                      value={email}
-                      onChange={(e) => setEmail(e.target.value)}
-                      className="w-full bg-white border border-gray-300 h-11 px-4 rounded-lg text-sm text-gray-900 focus:border-gray-400 focus:outline-none focus:ring-0"
-                      required
-                    />
-                  </div>
-                  <button
-                    type="submit"
-                    disabled={isLoading}
-                    className="w-full bg-gray-900 hover:bg-gray-800 text-white h-11 text-sm font-normal shadow-none rounded-lg transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
-                  >
-                    {isLoading ? 'Processing...' : 'Get Download Link'}
-                  </button>
-                </form>
-              </>
-            ) : (
-              <div className="space-y-5 text-center">
-                <div className="border border-gray-200 bg-gray-50 rounded-lg p-5">
-                  <svg className="h-8 w-8 text-gray-600 mx-auto mb-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-                  </svg>
-                  <h3 className="text-gray-900 text-sm font-medium mb-2">
-                    Success!
-                  </h3>
-                  <p className="text-gray-600 text-sm mb-4">
-                    Check your email for the download link.
-                  </p>
-                </div>
-
-                <button
-                  onClick={handleDownload}
-                  className="w-full bg-gray-900 hover:bg-gray-800 text-white h-11 text-sm font-normal shadow-none rounded-lg transition-colors flex items-center justify-center gap-2"
-                >
-                  <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
-                  </svg>
-                  Download APK Directly
-                </button>
-              </div>
-            )}
+          <div className="border border-gray-200 rounded-lg p-6 sm:p-8 space-y-6 text-center">
+            <div className="space-y-4">
+              <h2 className="text-lg font-medium text-gray-900">
+                Early Access Download
+              </h2>
+              <p className="text-sm text-gray-600">
+                Download the .we Android APK
+              </p>
+              
+              <button
+                onClick={handleDownload}
+                className="w-full bg-gray-900 hover:bg-gray-800 text-white h-11 text-sm font-normal shadow-none rounded-lg transition-colors flex items-center justify-center gap-2"
+              >
+                <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+                </svg>
+                Download
+              </button>
+            </div>
           </div>
 
           {/* Installation Instructions */}
