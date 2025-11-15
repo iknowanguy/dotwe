@@ -5,8 +5,8 @@ import Footer from '@/components/Footer';
 
 export default function EarlyAccessPage() {
   const handleDownload = () => {
-    // Direct download link to APK
-    window.location.href = 'https://www.dotwe.app/download';
+    // Direct download link to Google Drive folder
+    window.location.href = 'https://drive.google.com/drive/folders/1pXSgzfsTMbsqiuw1N--5dRrWkgzmDZ6e?usp=sharing';
   };
 
   return (
